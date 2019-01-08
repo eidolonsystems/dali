@@ -6,8 +6,15 @@ interface Properties {
   /** The size of the padding to add, by default the size is 100%. */
   size?: number | string;
 
-  /** Specifies the CSS class of the Padding HTML element. */
+  /** The unique id of the component. */
+  id?: string;
+
+  /** Specifies the CSS class of the component. */
   className?: string;
+
+  /** The CSS style to apply. */
+  style?: any;
+
   /** Used internally to determine the padding's orientation. */
   orientation?: any;
 }
@@ -46,6 +53,7 @@ export class Padding extends React.Component<Properties> {
         };
       }
     })();
-    return <div className={this.props.className} style={style}></div>;
+    return <div id={this.props.id} className={this.props.className}
+      style={{...this.props.style, ...style}}></div>;
   }
 }

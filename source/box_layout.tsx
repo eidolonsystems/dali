@@ -24,21 +24,18 @@ interface Properties {
   /** The CSS style to apply. */
   style?: any;
 
+  /** The event handler called when the layout is clicked. */
+  onClick?: (event?: React.MouseEvent<any>) => void;
+
   /** The event handler called when the mouse enters the region. */
   onMouseEnter?: (event?: React.MouseEvent<any>) => void;
-
-  /** The event handler called when the mouse leaves the region,
-      or one of its child components. */
-  onMouseOut?: (event?: React.MouseEvent<any>) => void;
 
   /** The event handler called when the mouse leaves the region. */
   onMouseLeave?: (event?: React.MouseEvent<any>) => void;
 
-  /** The event handler called when the layout is clicked. */
-  onClick?: (event?: React.MouseEvent<any>) => void;
-
-  /** Callback receiving the containing DIV element. */
-  container?: (container: HTMLDivElement) => void;
+  /** The event handler called when the mouse leaves the region, or one of its
+   * child components. */
+  onMouseOut?: (event?: React.MouseEvent<any>) => void;
 }
 
 /** Implements a layout component where children elements subdivide a box either
@@ -141,12 +138,11 @@ export class BoxLayout extends React.Component<Properties> {
         return child;
       });
     return (
-      <div id={this.props.id} style={outerStyle}
+      <div id={this.props.id} className={this.props.className}
+          style={outerStyle} onClick={this.props.onClick}
           onMouseEnter={this.props.onMouseEnter}
-          className={this.props.className}
-          onMouseOut={this.props.onMouseOut} onClick={this.props.onClick}
           onMouseLeave={this.props.onMouseLeave}
-          ref={this.props.container}>
+          onMouseOut={this.props.onMouseOut}>
         <div style={innerStyle}>
           {properChildren}
         </div>
