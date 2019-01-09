@@ -30,7 +30,7 @@ bower_components
 .lock-wscript
 
 # Typescript output.
-build/
+library/
 
 # Dependency directories
 node_modules/
