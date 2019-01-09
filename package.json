@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "React components used for layout.",
   "license": "Apache-2.0",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "library/index.js",
+  "types": "library/index.d.ts",
   "scripts": {
     "compile": "node node_modules/typescript/bin/tsc -p .",
     "build": "npm run compile"
