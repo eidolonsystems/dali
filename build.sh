@@ -24,6 +24,7 @@ if [ "$1" = "reset" ]; then
   rm package-lock.json
   exit 0
 fi
+"$directory/configure.sh"
 if [ ! -d "node_modules" ]; then
   UPDATE_NODE=1
 else
@@ -60,7 +61,6 @@ else
   fi
 fi
 if [ "$UPDATE_BUILD" = "1" ]; then
-  $directory/configure.sh
   if [ -d library ]; then
     rm -rf library
   fi

@@ -35,6 +35,7 @@ IF NOT "%~dp0" == "!ROOT!\" (
   COPY /Y "%~dp0package.json" . >NUL
   COPY /Y "%~dp0tsconfig.json" . >NUL
 )
+"CALL %~dp0configure.bat"
 IF NOT EXIST node_modules (
   SET UPDATE_NODE=1
 ) ELSE (
@@ -98,7 +99,6 @@ IF NOT EXIST mod_time.txt (
   )
 )
 IF "!UPDATE_BUILD!" == "1" (
-  CALL %~dp0configure.bat
   IF EXIST library (
     RMDIR /q /s library
   )
