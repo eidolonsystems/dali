@@ -35,7 +35,7 @@ IF NOT "%~dp0" == "!ROOT!\" (
   COPY /Y "%~dp0package.json" . >NUL
   COPY /Y "%~dp0tsconfig.json" . >NUL
 )
-"CALL %~dp0configure.bat"
+CALL "%~dp0configure.bat"
 IF NOT EXIST node_modules (
   SET UPDATE_NODE=1
 ) ELSE (
